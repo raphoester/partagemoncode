@@ -11,8 +11,13 @@ class ProfilController extends Controller
 
     public function profil($id)
     {
+<<<<<<< HEAD
         $utilisateurRequis = User::findOrFail($id);
         return view('profils/profil')->with("profil", $utilisateurRequis)->with("connecte", auth()->user());
+=======
+        $user = \App\Models\User::findOrFail($id);
+        return view('profils/profil', ['user' => $user]);
+>>>>>>> 0eb6915f13b0e3e683e10fabead6f3dc723d5bcb
     }
 
 
