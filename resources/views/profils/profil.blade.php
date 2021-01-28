@@ -9,8 +9,10 @@
                         <div class="d-flex flex-column align-items-center text-center">
                             <img src="" class="rounded-circle" width="150">
                             <div class="mt-3">
-                                <h4>{{$user->name}}</h4>
-                                <a href="\profil\modification">Modifier votre profil</a>
+                                <h4>{{$profil->name}}</h4>
+                                @if($connecte->id == $profil->id)
+                                    <a href="\profil\modification">Modifier votre profil</a>
+                                @endif
                                 
                             </div>
                         </div>
@@ -25,7 +27,7 @@
                                 <h6 class="mb-0">Email</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                            {{$user->email}}
+                            {{$profil->email}}
                             </div>
                         </div>
                         <hr>
@@ -34,7 +36,7 @@
                                 <h6 class="mb-0">Inscrit depuis le</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                            {{$user->created_at}}
+                            {{$profil->created_at}}
                             </div>
                         </div>
                     </div>

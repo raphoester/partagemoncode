@@ -3,15 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\User as User;
+use Illuminate\Contracts\Mail\Mailer;
 class ProfilController extends Controller
 {
 
-    public function profil()
+    public function profil($id)
     {
-        $user = auth()->user();
-        return view('profils/profil', ['user' => $user]);
+        $utilisateurRequis = User::findOrFail($id);
+        return view('profils/profil')->with("profil", $utilisateurRequis)->with("connecte", auth()->user());
     }
+
+
+
 
     public function page_modif_profil()
     {   
@@ -22,7 +27,7 @@ class ProfilController extends Controller
 
 
 
-    public function updateprofil()
+    public function updateprofil(Mailer $email)
     {
         $user = User::find(auth()->user()->id);
 
@@ -40,6 +45,14 @@ class ProfilController extends Controller
 
     
         $user->save();
+
+        $email->send('emails.modifprofil', ['username' => $user->name], function($message) use($user){
+
+            
+
+            $message->to($user->email)->from('partagemoncode@gmail.com')->subject('Changement des informations confidentielles');
+
+        });
 
 
         
