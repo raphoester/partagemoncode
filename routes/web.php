@@ -34,7 +34,12 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/edition/{id}',[App\Http\Controllers\CodeController::class, 'edit']);
 
+    Route::post('/edition/{id}', [App\Http\Controllers\CodeController::class, 'maj_pdc']);
+    
     Route::get('/creerPage', [App\Http\Controllers\CodeController::class, 'creer']);
+
+    Route::post('/creerPage', [App\Http\Controllers\CodeController::class, 'creer_post']);
+
 
 });
 

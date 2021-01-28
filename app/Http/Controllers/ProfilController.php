@@ -45,7 +45,6 @@ class ProfilController extends Controller
             $user->password = bcrypt(request('mdpnv'));
         }
 
-    
         $user->save();
 
         $email->send('emails.modifprofil', ['username' => $user->name], function($message) use($user){
