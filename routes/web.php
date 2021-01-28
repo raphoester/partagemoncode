@@ -38,6 +38,8 @@ Route::group(['middleware' => 'auth'], function () {
     
     Route::get('/creerPage', [App\Http\Controllers\CodeController::class, 'creer']);
 
+    Route::delete('/supprimer/{id}', [App\Http\Controllers\ProfilController::class, 'delete']);
+
     Route::post('/creerPage', [App\Http\Controllers\CodeController::class, 'creer_post']);
 
 

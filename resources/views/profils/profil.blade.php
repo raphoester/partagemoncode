@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <img src="" class="rounded-circle" width="150">
+                            <img src="https://fanfare-makabes.fr/wp-content/uploads/2015/09/user-image.jpg" class="rounded-circle" width="150">
                             <div class="mt-3">
                                 <h4>{{$profil->name}}</h4>
                                 @if($connecte->id == $profil->id)
@@ -39,6 +39,18 @@
                             {{$profil->created_at}}
                             </div>
                         </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Nombre de pages possédées:</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                            
+                                {{$nombres += 1}}
+                            
+                            </div>
+                        </div>
+                        <hr>
                     </div>
                 </div>
                 
@@ -49,10 +61,10 @@
         @foreach($pages as $page)
 
         <div class="card-body">
-            <h4>Titre de la page</h4>
-            <a href="">Lien vers la page</a>
+            <h5>{{$page->titre}}</h5>
+            <a href="/edition/{{$page->id}}">Voir la page</a>
             <div class="text-right">
-                <button type="button" class="btn btn-danger" href="">Supprimer</button>
+                <button type="submit" class="btn btn-danger" href="/supprimer/{id}">Supprimer</button>
                 
 
             </div>

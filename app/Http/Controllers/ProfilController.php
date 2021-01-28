@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\pageDeCode;
 use App\Models\User as User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Mail\Mailer;
@@ -14,7 +15,11 @@ class ProfilController extends Controller
     {
         $user = \App\Models\User::findOrFail($id);
         $liste = Auth::user()->pages;
-        return view('profils/profil')->with("profil", $user)->with("connecte", auth()->user())->with('pages', $liste);
+        $nombre = 0;
+        
+        return view('profils/profil')->with("profil", $user)->with("connecte", auth()->user())->with('pages', $liste)->with("nombres", $nombre);
+
+        
     }
 
 
@@ -25,7 +30,19 @@ class ProfilController extends Controller
         $user = auth()->user();
         return view('profils/modifprofil', ['user' => $user]);
     }
-    //
+    
+
+    public function delete($id){
+
+        $del = \App\Models\pageDeCode::findOrFail($id);
+
+
+        $del->delete();
+
+        
+
+
+    }
 
 
 
