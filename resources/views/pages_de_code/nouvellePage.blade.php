@@ -3,7 +3,7 @@
 @section('contenu')
 <div class="container">
     <form action="" method='POST'>
-        <input type="textarea" name='contenu'>
+        <input type="text" name='titre'>
         <input type="submit">
 
     </form>

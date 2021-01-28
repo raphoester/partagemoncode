@@ -13,10 +13,11 @@ class CreatePageDeCodesTable extends Migration
      */
     public function up()
     {
-        Schema::create('page_de_codee', function (Blueprint $table) {
+        Schema::create('page_de_codes', function (Blueprint $table) {
             $table->id();
             $table->longText('contenu')->nullable();
             $table->bigInteger('user_id');
+            $table->string('titre');
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
@@ -30,6 +31,6 @@ class CreatePageDeCodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('page_de_codee');
+        Schema::dropIfExists('page_de_codes');
     }
 }

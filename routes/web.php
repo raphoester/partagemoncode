@@ -20,4 +20,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/modifprofil', [App\Http\Controllers\HomeController::class, 'profil'])->name('modifprofil');
+
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('/modifprofil', [App\Http\Controllers\HomeController::class, 'profil'])->name('modifprofil');
+
+    Route::get('/pages', [App\Http\Controllers\CodeController::class, 'liste']);
+
+    Route::get('/edition/{id}',[App\Http\Controllers\CodeController::class, 'edit']);
+
+    Route::get('/creerPage', [App\Http\Controllers\CodeController::class, 'creer']);
+
+});
