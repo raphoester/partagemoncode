@@ -46,15 +46,22 @@
         </div>
 
         <h2>Vos pages partagées: </h2>
+        @foreach($pages as $page)
 
         <div class="card-body">
             <h4>Titre de la page</h4>
-            <a href="">Lien ver la page</a>
+            <a href="">Lien vers la page</a>
+            <div class="text-right">
+                <button type="button" class="btn btn-danger" href="">Supprimer</button>
+                
+
+            </div>
         </div>
-        <div class="card-body">
-            <h4>Faudra mettre une boucle</h4>
-            <a href="">Lien ver la page</a>
-        </div>
+
+        @endforeach
+
+        
+        
     </div>
 </div>
 

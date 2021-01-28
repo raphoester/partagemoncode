@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User as User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Mail\Mailer;
 class ProfilController extends Controller
 {
@@ -12,7 +13,8 @@ class ProfilController extends Controller
     public function profil($id)
     {
         $user = \App\Models\User::findOrFail($id);
-        return view('profils/profil')->with("profil", $user)->with("connecte", auth()->user());
+        $liste = Auth::user()->pages;
+        return view('profils/profil')->with("profil", $user)->with("connecte", auth()->user())->with('pages', $liste);
     }
 
 
