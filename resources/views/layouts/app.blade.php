@@ -40,7 +40,9 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    @if($util != null)
                     <ul class="navbar-nav mr-auto">
+
                         <li class="nav-item">
                             <a class="nav-link" href="/pages">{{ __('Pages de code') }}</a>
                         </li>
@@ -49,6 +51,7 @@
                             <a class="nav-link" href="/profil/{{$util->id}}">{{ __('Mon profil') }}</a>
                         </li>
                     </ul>
+                    @endif
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

@@ -10,11 +10,12 @@ class pageDeCode extends Model
     protected $fillable = [
         'contenu',
         'user_id',
-        'titre'
+        'titre',
+        'public',
     ];
 
     public function proprietaire(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, "user_id");
     }
     use HasFactory;
 }

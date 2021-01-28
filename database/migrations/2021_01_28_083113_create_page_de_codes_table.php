@@ -18,6 +18,7 @@ class CreatePageDeCodesTable extends Migration
             $table->longText('contenu')->nullable();
             $table->bigInteger('user_id');
             $table->string('titre');
+            $table->boolean('prive')->default(false);
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
