@@ -1,3 +1,6 @@
+@php
+    $util = auth()->user();
+@endphp
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -36,7 +39,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pages">{{ __('Pages de code') }}</a>
+                        </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profil/{{$util->id}}">{{ __('Mon profil') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

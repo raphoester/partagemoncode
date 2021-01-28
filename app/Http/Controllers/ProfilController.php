@@ -7,9 +7,9 @@ use App\Models\User as User;
 class ProfilController extends Controller
 {
 
-    public function profil()
+    public function profil($id)
     {
-        $user = auth()->user();
+        $user = \App\Models\User::findOrFail($id);
         return view('profils/profil', ['user' => $user]);
     }
 
