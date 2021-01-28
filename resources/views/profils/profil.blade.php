@@ -45,9 +45,13 @@
                                 <h6 class="mb-0">Nombre de pages possédées:</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                            
-                                {{$nombres += 1}}
-                            
+                                @php
+                                $i=0;
+                                    foreach($pages as $page){
+                                        $i+=1;
+                                    }
+                                @endphp
+                                {{$i}}
                             </div>
                         </div>
                         <hr>
@@ -57,17 +61,12 @@
             </div>
         </div>
 
-        <h2>Vos pages partagées: </h2>
+        <h2>Vos dernières pages: </h2>
         @foreach($pages as $page)
-
         <div class="card-body">
-            <h5>{{$page->titre}}</h5>
-            <a href="/edition/{{$page->id}}">Voir la page</a>
-            <div class="text-right">
-                <button type="submit" class="btn btn-danger" href="/supprimer/{id}">Supprimer</button>
-                
-
-            </div>
+            <a href="/edition/{{$page->id}}">{{$page->titre}}</a>
+                |   
+            <a type="submit" href="/supprimer/{{$page->id}}">❌</a>
         </div>
 
         @endforeach

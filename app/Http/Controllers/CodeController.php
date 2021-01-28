@@ -59,7 +59,7 @@ class CodeController extends Controller
         }
         else
         {
-            return('404');
+            abort(404);
         }
     }
 }

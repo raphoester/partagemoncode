@@ -47,9 +47,6 @@
                             <a class="nav-link" href="/pages">{{ __('Pages de code') }}</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/profil/{{$util->id}}">{{ __('Mon profil') }}</a>
-                        </li>
                     </ul>
                     @endif
 

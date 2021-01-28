@@ -15,11 +15,10 @@ class ProfilController extends Controller
     {
         $user = \App\Models\User::findOrFail($id);
         $liste = Auth::user()->pages;
-        $nombre = 0;
-        
-        return view('profils/profil')->with("profil", $user)->with("connecte", auth()->user())->with('pages', $liste)->with("nombres", $nombre);
+        $liste = $liste->sortByDesc('updated_at')->chunk(3)[0];
 
-        
+        return view('profils/profil')->with("profil", $user)->with("connecte", auth()->user())->with('pages', $liste);
+
     }
 
 
@@ -38,9 +37,7 @@ class ProfilController extends Controller
 
 
         $del->delete();
-
-        
-
+        return back();
 
     }
 
