@@ -23,7 +23,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/modifprofil', [App\Http\Controllers\HomeController::class, 'profil'])->name('modifprofil');
+    Route::get('/profil/utilisateur', [App\Http\Controllers\ProfilController::class, 'profil']);
+
+    Route::get('/profil/modification', [App\Http\Controllers\ProfilController::class, 'page_modif_profil']);
+
+    Route::post('/profil/modification', [App\Http\Controllers\ProfilController::class, 'updateprofil']);
 
     Route::get('/pages', [App\Http\Controllers\CodeController::class, 'liste']);
 
@@ -32,3 +36,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/creerPage', [App\Http\Controllers\CodeController::class, 'creer']);
 
 });
+
+
+
+
+
+
