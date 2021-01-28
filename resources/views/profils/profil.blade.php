@@ -44,6 +44,17 @@
                 
             </div>
         </div>
+
+        <h2>Vos pages partagées: </h2>
+
+        <div class="card-body">
+            <h4>Titre de la page</h4>
+            <a href="">Lien ver la page</a>
+        </div>
+        <div class="card-body">
+            <h4>Faudra mettre une boucle</h4>
+            <a href="">Lien ver la page</a>
+        </div>
     </div>
 </div>
 
