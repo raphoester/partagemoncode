@@ -22,5 +22,9 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+
+Route::get('/profil/utilisateur', [App\Http\Controllers\ProfilController::class, 'profil']);
+
+
 Route::get('/profil/modification', [App\Http\Controllers\ProfilController::class, 'page_modif_profil']);
 Route::post('/profil/modification', [App\Http\Controllers\ProfilController::class, 'updateprofil']);

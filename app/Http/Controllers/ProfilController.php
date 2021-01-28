@@ -9,13 +9,14 @@ class ProfilController extends Controller
 
     public function profil()
     {
-        return view('modifprofil');
+        $user = auth()->user();
+        return view('profils/profil', ['user' => $user]);
     }
 
     public function page_modif_profil()
     {   
         $user = auth()->user();
-        return view('profils/modifierprofil', ['user' => $user]);
+        return view('profils/modifprofil', ['user' => $user]);
     }
     //
 
