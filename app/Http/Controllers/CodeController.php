@@ -30,11 +30,36 @@ class CodeController extends Controller
     }
 
     public function creer_post(Request $requete){
+        //dd($requete);
         $page = new \App\Models\PageDeCode;
+
+        if($requete->prive == "on"){
+            $page->prive = true;
+        }
+        else
+        {
+            $page->prive = false;
+        }
+
         $page->titre = $requete->titre;
         $page->user_id = Auth::user()->id;
+
         $page->save();
 
-        return $this->edit($page->id);
+        return redirect()->route('edit', ['id' => $page->id]);
+    }
+
+    public function codePublic($id_page)
+    {
+        $page = \App\Models\PageDeCode::findOrFail($id_page);
+        if(!$page->prive)
+        {
+            $auteur = \App\Models\User::find($page->proprietaire)->first();
+            return view("pages_de_code/code_public")->with("code", $page)->with('auteur', $auteur);
+        }
+        else
+        {
+            return('404');
+        }
     }
 }

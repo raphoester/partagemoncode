@@ -32,7 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/pages', [App\Http\Controllers\CodeController::class, 'liste']);
 
-    Route::get('/edition/{id}',[App\Http\Controllers\CodeController::class, 'edit']);
+    Route::get('/edition/{id}',[App\Http\Controllers\CodeController::class, 'edit'])->name('edit');
 
     Route::post('/edition/{id}', [App\Http\Controllers\CodeController::class, 'maj_pdc']);
     
@@ -40,10 +40,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('/creerPage', [App\Http\Controllers\CodeController::class, 'creer_post']);
 
-
 });
 
-
+Route::get('/{id_page}', [App\Http\Controllers\CodeController::class, 'codePublic']); 
 
 
 
