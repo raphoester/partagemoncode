@@ -6,7 +6,7 @@
     <a href="/creerPage">Nouvelle page de code</a>
     @foreach($pages as $page)
     <div>
-        <h3></h3>
+        <h3><a href="/edition/{{$page->id}}">{{$page->titre}}</a></h3>
     </div>
     @endforeach
 </div>

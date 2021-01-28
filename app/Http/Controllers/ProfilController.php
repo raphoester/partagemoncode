@@ -18,10 +18,7 @@ class ProfilController extends Controller
         $user = auth()->user();
         return view('profils/modifprofil', ['user' => $user]);
     }
-    //
-
-
-
+    
     public function updateprofil()
     {
         $user = User::find(auth()->user()->id);
@@ -38,12 +35,7 @@ class ProfilController extends Controller
             $user->password = bcrypt(request('mdpnv'));
         }
 
-    
         $user->save();
-
-
-        
-
         return view('profils/modifprofil', ['profil' => $user])->with("connecte", auth()->user());
     }
 }
